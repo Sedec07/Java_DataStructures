@@ -6,11 +6,19 @@
         public static void main(String [] args) {
 
             Scanner scanner = new Scanner(System.in);
+            int resultado=0;
 
             // Pedir al usuario que ingrese un número
             System.out.print("Ingresa un número para calcular su factorial: ");
             int numero = scanner.nextInt();
-            int resultado = fact_iteractivo(numero);
+            System.out.print("Seleccione un metodo: 1.recursivo 2.iteractivp ");
+            int metodo=scanner.nextInt();
+            if (metodo==1) {
+                 resultado = fact(numero);
+            } else{
+                 resultado = fact_iteractivo(numero);
+            }
+            
             System.out.println("El factorial de " + numero + " es: " + resultado);
         }
         static int fact(int n) {
@@ -22,11 +30,10 @@
             }
         }
         static int fact_iteractivo(int n) {
-            int factorial = 1;  // Inicializamos el factorial en 1
-            // Usamos un ciclo para multiplicar los números desde 1 hasta n
+            int factorial = 1;
             for (int i = 1; i <= n; i++) {
-                factorial *= i;  // Multiplicamos el factorial por el número i en cada iteración
+                factorial *= i;
             }
-            return factorial;  // Devolvemos el resultado final
+            return factorial; 
         }
     }
