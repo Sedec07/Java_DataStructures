@@ -18,7 +18,7 @@
             if (metodo==1) {
                  resultado = fibo(numero);
             } else{
-                 resultado = fact_iteractivo(numero);
+                 resultado = fibo_iteractivo(numero);
             }
             
             System.out.println("El valor de la posición fibonacci " + numero + " es: " + resultado);
@@ -34,11 +34,14 @@
                 return fibo(n - 1) + fibo(n - 2);
             }
         }
-        static int fact_iteractivo(int n) {
-            int factorial = 1;
-            for (int i = 1; i <= n; i++) {
-                factorial *= i;
+        static int fibo_iteractivo(int n) {
+
+            int[] fibo = new int[n];
+            fibo[0]=1;
+            fibo[1]=1;
+            for (int i = 2; i < n; i++) {
+                fibo[i]=fibo[i-1]+fibo[i-2];
             }
-            return factorial; 
+            return fibo[n-1]; 
         }
     }
